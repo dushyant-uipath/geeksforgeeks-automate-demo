@@ -1,0 +1,22 @@
+{
+  "DocVersion": "1.0.0",
+  "StudioMinVersion": "2025.10.0",
+  "SolutionId": "5500c767-c692-4149-35c7-08df35d7b5a5",
+  "Projects": [
+    {
+      "Type": "Flow",
+      "ProjectRelativePath": "DevPulse/project.uiproj",
+      "Id": "af6a19fd-72b3-4387-a558-204e858640b7"
+    },
+    {
+      "Type": "AppV2",
+      "ProjectRelativePath": "devpulse-review/project.uiproj",
+      "Id": "0c0377a1-2c64-4cdb-8a55-2923764d0ac0"
+    },
+    {
+      "Type": "Flow",
+      "ProjectRelativePath": "MyProject/project.uiproj",
+      "Id": "51c01389-3b95-4b5f-98c8-e4d38cc12cec"
+    }
+  ]
+}

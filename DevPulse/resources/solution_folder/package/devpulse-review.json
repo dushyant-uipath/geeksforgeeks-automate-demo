@@ -1,0 +1,23 @@
+{
+  "docVersion": "1.0.0",
+  "resource": {
+    "name": "devpulse-review",
+    "kind": "package",
+    "apiVersion": "orchestrator.uipath.com/v1",
+    "projectKey": "0c0377a1-2c64-4cdb-8a55-2923764d0ac0",
+    "isOverridable": true,
+    "dependencies": [],
+    "runtimeDependencies": [],
+    "folders": [
+      {
+        "fullyQualifiedName": "solution_folder"
+      }
+    ],
+    "spec": {
+      "name": "devpulse-review"
+    },
+    "locks": [],
+    "key": "164f2a10-95d1-4add-b3a6-45529c41e364",
+    "files": []
+  }
+}

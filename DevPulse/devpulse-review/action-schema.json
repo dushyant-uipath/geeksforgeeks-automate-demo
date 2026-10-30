@@ -1,0 +1,28 @@
+{
+  "inputs": {
+    "type": "object",
+    "properties": {
+      "recipient": { "type": "string", "required": true, "description": "Who the issue will be sent to" },
+      "topic": { "type": "string", "required": true, "description": "Topic the issue covers" },
+      "subject": { "type": "string", "required": true, "description": "Subject line of the issue" },
+      "bodyHtml": { "type": "string", "required": true, "description": "The issue as an HTML email body" }
+    }
+  },
+  "outputs": {
+    "type": "object",
+    "properties": {
+      "note": { "type": "string", "required": false, "description": "Optional note from the reviewer" }
+    }
+  },
+  "inOuts": {
+    "type": "object",
+    "properties": {}
+  },
+  "outcomes": {
+    "type": "object",
+    "properties": {
+      "Send": { "type": "string" },
+      "Discard": { "type": "string" }
+    }
+  }
+}

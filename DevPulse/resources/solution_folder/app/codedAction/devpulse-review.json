@@ -1,0 +1,34 @@
+{
+  "docVersion": "1.0.0",
+  "resource": {
+    "name": "devpulse-review",
+    "kind": "app",
+    "type": "codedAction",
+    "apiVersion": "apps.uipath.com/v1",
+    "projectKey": "0c0377a1-2c64-4cdb-8a55-2923764d0ac0",
+    "isOverridable": true,
+    "dependencies": [
+      {
+        "kind": "package",
+        "name": "devpulse-review"
+      }
+    ],
+    "runtimeDependencies": [],
+    "folders": [
+      {
+        "fullyQualifiedName": "solution_folder"
+      }
+    ],
+    "spec": {
+      "name": "devpulse-review",
+      "version": "1.0.0",
+      "package": {
+        "key": "164f2a10-95d1-4add-b3a6-45529c41e364"
+      },
+      "actionSchema": "{\"key\":\"b0d4584c-bab7-5ac1-8443-4092386de037\",\"version\":0,\"description\":\"Action Schema\",\"id\":\"ID39fd39314f3956fa944f5e3734fe4318\",\"name\":\"ActionSchema\",\"inputs\":[{\"name\":\"recipient\",\"key\":\"1a195969-b606-5490-8c6e-b6cb65efc6d2\",\"required\":true,\"description\":\"Who the issue will be sent to\",\"version\":0,\"typeNamespace\":\"system\",\"isList\":false,\"collectionDataType\":null,\"type\":\"System.String\",\"properties\":[]},{\"name\":\"topic\",\"key\":\"dfe36505-9e66-542c-b52e-bf6b4dc3a1e2\",\"required\":true,\"description\":\"Topic the issue covers\",\"version\":0,\"typeNamespace\":\"system\",\"isList\":false,\"collectionDataType\":null,\"type\":\"System.String\",\"properties\":[]},{\"name\":\"subject\",\"key\":\"4a75a856-f164-5527-a43c-e98c1aa8153d\",\"required\":true,\"description\":\"Subject line of the issue\",\"version\":0,\"typeNamespace\":\"system\",\"isList\":false,\"collectionDataType\":null,\"type\":\"System.String\",\"properties\":[]},{\"name\":\"bodyHtml\",\"key\":\"9eff565b-876e-50e8-90ea-6965680574ca\",\"required\":true,\"description\":\"The issue as an HTML email body\",\"version\":0,\"typeNamespace\":\"system\",\"isList\":false,\"collectionDataType\":null,\"type\":\"System.String\",\"properties\":[]}],\"outputs\":[{\"name\":\"note\",\"key\":\"f1021b39-39e2-5a5c-a5dd-69dfef60062a\",\"required\":false,\"description\":\"Optional note from the reviewer\",\"version\":0,\"typeNamespace\":\"system\",\"isList\":false,\"collectionDataType\":null,\"type\":\"System.String\",\"properties\":[]}],\"inOuts\":[],\"outcomes\":[{\"name\":\"Send\",\"key\":\"15db6f08-888a-563f-956b-a3823c9d8ac1\",\"required\":false,\"type\":\"System.String\",\"typeNamespace\":\"system\",\"isList\":false,\"properties\":[],\"version\":0},{\"name\":\"Discard\",\"key\":\"598cee6c-870f-5251-90ac-20deebdd220b\",\"required\":false,\"type\":\"System.String\",\"typeNamespace\":\"system\",\"isList\":false,\"properties\":[],\"version\":0}]}"
+    },
+    "locks": [],
+    "key": "766c32fc-92f5-4168-adc6-342191afbf75",
+    "files": []
+  }
+}

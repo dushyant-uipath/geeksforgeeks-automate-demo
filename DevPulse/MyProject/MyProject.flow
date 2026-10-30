@@ -1,0 +1,423 @@
+{
+  "id": "bb4cb564-a433-410f-9c8b-397935bd5241",
+  "version": "1.9",
+  "name": "MyProject",
+  "runtime": "maestro",
+  "nodes": [
+    {
+      "id": "start",
+      "type": "core.trigger.manual",
+      "typeVersion": "1.0",
+      "display": {
+        "label": "Manual trigger",
+        "icon": "play"
+      },
+      "inputs": {
+        "entryPointId": "d0439556-33bc-4b64-9b6e-7c946779f6af",
+        "isDefaultEntryPoint": true
+      },
+      "outputs": {
+        "output": {
+          "type": "object",
+          "description": "Data passed when manually triggering the process.",
+          "source": "null",
+          "var": "output"
+        }
+      },
+      "uniqueId": "e7fdf341-d265-4cb8-84aa-98451f2e07b5"
+    },
+    {
+      "id": "quickForm1",
+      "type": "uipath.human-in-the-loop.quick-form",
+      "typeVersion": "1.8",
+      "display": {
+        "label": "Quick Form",
+        "shape": "square",
+        "icon": "users"
+      },
+      "inputs": {
+        "schema": {
+          "fields": [
+            {
+              "id": "comments",
+              "type": "string",
+              "label": "Comments",
+              "direction": "output"
+            }
+          ],
+          "outcomes": [
+            {
+              "id": "submit",
+              "name": "Submit",
+              "type": "string",
+              "isPrimary": true,
+              "action": "Continue"
+            }
+          ]
+        },
+        "recipient": {
+          "channels": [
+            "Email",
+            "ActionCenter"
+          ],
+          "connections": {},
+          "assignee": {
+            "type": "user"
+          }
+        }
+      },
+      "outputs": {
+        "output": {
+          "type": "object",
+          "description": "Task result data",
+          "source": "=result",
+          "var": "output"
+        },
+        "status": {
+          "type": "string",
+          "description": "Task completion status (completed, cancelled, timeout)",
+          "source": "=result.Action",
+          "var": "status"
+        }
+      },
+      "uniqueId": "732ea5ee-3bf6-4f2a-b52a-beffeb35400d"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge_start-output-uipath.human-in-the-loop.quick-form-1793364092833-input",
+      "sourceNodeId": "start",
+      "sourcePort": "output",
+      "targetNodeId": "quickForm1",
+      "targetPort": "input"
+    }
+  ],
+  "definitions": [
+    {
+      "nodeType": "core.trigger.manual",
+      "version": "1.0",
+      "category": "trigger",
+      "description": "Start the process manually",
+      "tags": [
+        "trigger",
+        "start",
+        "manual"
+      ],
+      "sortOrder": 80,
+      "display": {
+        "label": "Manual trigger",
+        "icon": "play",
+        "shape": "circle"
+      },
+      "handleConfiguration": [
+        {
+          "position": "right",
+          "handles": [
+            {
+              "id": "output",
+              "type": "source",
+              "handleType": "output",
+              "showButton": true,
+              "constraints": {
+                "forbiddenTargetCategories": [
+                  "trigger"
+                ]
+              }
+            }
+          ],
+          "visible": true
+        }
+      ],
+      "model": {
+        "type": "bpmn:StartEvent",
+        "entryPointId": true
+      },
+      "outputDefinition": {
+        "output": {
+          "type": "object",
+          "description": "Data passed when manually triggering the process.",
+          "source": "null",
+          "var": "output"
+        }
+      },
+      "toolbarExtensions": {
+        "design": {
+          "actions": [
+            {
+              "id": "change-trigger-type",
+              "icon": "square-mouse-pointer",
+              "label": "Change trigger type"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "nodeType": "uipath.human-in-the-loop.quick-form",
+      "version": "1.8",
+      "category": "human-task",
+      "description": "Fast inline approvals with inline debug",
+      "tags": [
+        "human-task",
+        "hitl",
+        "human-in-the-loop",
+        "quick-form",
+        "approval"
+      ],
+      "sortOrder": 50,
+      "supportsErrorHandling": true,
+      "display": {
+        "label": "Quick Form",
+        "icon": "users",
+        "shape": "square"
+      },
+      "handleConfiguration": [
+        {
+          "position": "left",
+          "handles": [
+            {
+              "id": "input",
+              "type": "target",
+              "handleType": "input"
+            }
+          ],
+          "visible": true
+        },
+        {
+          "position": "right",
+          "handles": [
+            {
+              "id": "completed",
+              "type": "source",
+              "handleType": "output",
+              "showButton": true,
+              "constraints": {
+                "forbiddenTargetCategories": [
+                  "trigger"
+                ]
+              }
+            },
+            {
+              "id": "error",
+              "label": "Error",
+              "type": "source",
+              "handleType": "output",
+              "visible": "{inputs.errorHandlingEnabled}",
+              "constraints": {
+                "maxConnections": 1
+              }
+            }
+          ],
+          "visible": true
+        }
+      ],
+      "model": {
+        "type": "bpmn:UserTask",
+        "serviceType": "Actions.HITL"
+      },
+      "inputDefaults": {
+        "schema": {
+          "fields": [
+            {
+              "id": "comments",
+              "type": "string",
+              "label": "Comments",
+              "direction": "output"
+            }
+          ],
+          "outcomes": [
+            {
+              "id": "submit",
+              "name": "Submit",
+              "type": "string",
+              "isPrimary": true,
+              "action": "Continue"
+            }
+          ]
+        },
+        "recipient": {
+          "channels": [
+            "Email",
+            "ActionCenter"
+          ],
+          "connections": {},
+          "assignee": {
+            "type": "user"
+          }
+        }
+      },
+      "outputDefinition": {
+        "output": {
+          "type": "object",
+          "description": "Task result data",
+          "source": "=result",
+          "var": "output"
+        },
+        "status": {
+          "type": "string",
+          "description": "Task completion status (completed, cancelled, timeout)",
+          "source": "=result.Action",
+          "var": "status"
+        }
+      },
+      "form": {
+        "id": "hitl-quick-form-properties",
+        "title": "Quick Form Task Configuration",
+        "sections": [
+          {
+            "id": "assignment",
+            "title": "Assignment criteria",
+            "collapsible": false,
+            "defaultExpanded": true,
+            "fields": [
+              {
+                "name": "inputs.recipient",
+                "type": "custom",
+                "component": "hitl-assignee-selector",
+                "label": "",
+                "description": ""
+              }
+            ]
+          },
+          {
+            "id": "schema",
+            "title": "Schema",
+            "collapsible": true,
+            "defaultExpanded": true,
+            "fields": [
+              {
+                "name": "inputs.schema",
+                "type": "custom",
+                "component": "hitl-schema-editor",
+                "label": "Task Schema",
+                "description": "Define the input and output parameters for this task"
+              }
+            ]
+          },
+          {
+            "id": "delivery",
+            "title": "Delivery channels",
+            "collapsible": false,
+            "defaultExpanded": true,
+            "fields": [
+              {
+                "name": "inputs.recipient",
+                "type": "custom",
+                "component": "hitl-channel-selector",
+                "label": "Delivery Channels",
+                "description": "Select where the task should be sent"
+              }
+            ]
+          },
+          {
+            "id": "additional-properties",
+            "title": "Additional properties",
+            "collapsible": true,
+            "defaultExpanded": true,
+            "fields": [
+              {
+                "name": "inputs.title",
+                "type": "text",
+                "label": "Task title"
+              },
+              {
+                "name": "inputs.priority",
+                "type": "select",
+                "label": "Priority",
+                "options": [
+                  {
+                    "label": "Low",
+                    "value": "Low"
+                  },
+                  {
+                    "label": "Medium",
+                    "value": "Medium"
+                  },
+                  {
+                    "label": "High",
+                    "value": "High"
+                  }
+                ]
+              },
+              {
+                "name": "inputs.labels",
+                "type": "text",
+                "label": "Labels",
+                "placeholder": "Comma-separated (e.g. finance,approval)"
+              },
+              {
+                "name": "inputs.memorySpace",
+                "type": "custom",
+                "component": "hitl-memory-space-picker",
+                "label": "Memory space",
+                "description": "Attach a memory space so this task's inputs and outputs are written to it"
+              }
+            ]
+          }
+        ]
+      },
+      "runtimeConstraints": {
+        "exclude": [
+          "api-function"
+        ]
+      }
+    }
+  ],
+  "variables": {
+    "nodes": [
+      {
+        "id": "start.output",
+        "type": "object",
+        "description": "Data passed when manually triggering the process.",
+        "binding": {
+          "nodeId": "start",
+          "outputId": "output"
+        }
+      },
+      {
+        "id": "quickForm1.output",
+        "type": "object",
+        "description": "Task result data",
+        "binding": {
+          "nodeId": "quickForm1",
+          "outputId": "output"
+        }
+      },
+      {
+        "id": "quickForm1.status",
+        "type": "string",
+        "description": "Task completion status (completed, cancelled, timeout)",
+        "binding": {
+          "nodeId": "quickForm1",
+          "outputId": "status"
+        }
+      }
+    ]
+  },
+  "layout": {
+    "nodes": {
+      "start": {
+        "position": {
+          "x": 256,
+          "y": 144
+        },
+        "size": {
+          "width": 96,
+          "height": 96
+        },
+        "collapsed": false
+      },
+      "quickForm1": {
+        "position": {
+          "x": 432,
+          "y": 144
+        },
+        "size": {
+          "width": 96,
+          "height": 96
+        },
+        "collapsed": false
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "docVersion": "1.0.0",
+  "resource": {
+    "name": "DevPulse",
+    "kind": "package",
+    "apiVersion": "orchestrator.uipath.com/v1",
+    "projectKey": "af6a19fd-72b3-4387-a558-204e858640b7",
+    "isOverridable": true,
+    "dependencies": [],
+    "runtimeDependencies": [],
+    "folders": [
+      {
+        "fullyQualifiedName": "solution_folder"
+      }
+    ],
+    "spec": {
+      "name": "DevPulse"
+    },
+    "locks": [],
+    "key": "c83d9fd9-3f83-4ad5-8703-46e594f5b769",
+    "files": []
+  }
+}

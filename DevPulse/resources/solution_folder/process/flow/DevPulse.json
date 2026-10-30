@@ -1,0 +1,58 @@
+{
+  "docVersion": "1.0.0",
+  "resource": {
+    "name": "DevPulse",
+    "kind": "process",
+    "type": "flow",
+    "apiVersion": "orchestrator.uipath.com/v1",
+    "projectKey": "af6a19fd-72b3-4387-a558-204e858640b7",
+    "isOverridable": true,
+    "dependencies": [
+      {
+        "kind": "package",
+        "name": "DevPulse"
+      }
+    ],
+    "runtimeDependencies": [
+      {
+        "bindingType": "connection",
+        "bindingKey": "",
+        "bindingValues": {
+          "connectionId": {
+            "defaultValue": "ImplicitConnection",
+            "isExpression": false
+          }
+        },
+        "bindingMetadata": {
+          "activityName": "fetchNews",
+          "bindingsVersion": "2.2",
+          "connector": "uipath-uipath-http",
+          "useConnectionService": "true"
+        },
+        "resourceKind": "Connection",
+        "resourceType": "uipath-uipath-http"
+      }
+    ],
+    "folders": [
+      {
+        "fullyQualifiedName": "solution_folder"
+      }
+    ],
+    "spec": {
+      "runtimeProfile": "Standard",
+      "type": "Flow",
+      "name": "DevPulse",
+      "package": {
+        "key": "c83d9fd9-3f83-4ad5-8703-46e594f5b769"
+      },
+      "targetFrameworkValue": "Portable",
+      "retentionAction": "Delete",
+      "retentionPeriod": 30,
+      "staleRetentionAction": "Delete",
+      "staleRetentionPeriod": 180
+    },
+    "locks": [],
+    "key": "83f569fe-1526-4435-ba49-f48cf0200832",
+    "files": []
+  }
+}
